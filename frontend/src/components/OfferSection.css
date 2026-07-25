@@ -1,0 +1,260 @@
+/* OfferSection Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.offer-section {
+  width: 100%;
+  margin-bottom: 24px;
+  font-family: var(--sans);
+}
+
+/* FLIPKART STYLE DEALS HEADER BANNER */
+.offer-title {
+  font-size: 20px;
+  color: var(--text-main);
+  font-weight: 700;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0;
+  border-radius: 2px 2px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.offer-title::after {
+  content: 'Deals of the Day';
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-primary-alt);
+  background: var(--accent-burgundy);
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* FIXED SPACE SLIDER WRAPPER */
+.offer-slider-wrapper {
+  width: 100%;
+  height: 220px; /* Perfect height to container */
+  overflow: hidden;
+  border-radius: 0 0 2px 2px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-top: none; /* Merges smoothly with the title block */
+  position: relative;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+}
+
+/* AUTO MOVE TRACK */
+.offer-slider-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: autoSlide 40s linear infinite;
+  padding: 10px;
+  height: 100%;
+  align-items: center;
+}
+
+/* CARDS */
+.offer-card {
+  width: 480px;
+  height: 200px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  display: flex;
+  align-items: stretch; /* Stretches children to full card height */
+  gap: 16px;
+  padding: 0; /* Remove card padding so image touches the borders */
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.offer-card:hover {
+  border-color: var(--glass-border);
+  box-shadow: var(--shadow);
+}
+
+.offer-card img {
+  width: 180px;
+  height: 100% !important; /* Forces the image to take the FULL height of the card */
+  object-fit: cover !important; /* Perfect crop coverage */
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0;
+}
+
+.offer-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 16px 16px 0; /* Elegant paddings inside detail block */
+  overflow: hidden;
+}
+
+.offer-details h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+  height: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.offer-percent {
+  color: #388e3c; /* Green discount text like Flipkart */
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.offer-price-box {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.new-price {
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.timer {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-burgundy);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+/* Coupon badge styled to never overflow */
+.offer-details .coupon-code {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-burgundy) !important;
+  background: #faf3ee !important;
+  border: 1px dashed var(--accent-burgundy) !important;
+  padding: 4px 8px !important;
+  border-radius: 2px !important;
+  display: inline-block;
+  width: max-content;
+}
+
+@media (max-width: 992px) {
+  .offer-title {
+    padding-inline: var(--page-gutter);
+  }
+
+  .offer-slider-wrapper {
+    height: 210px;
+  }
+
+  .offer-slider-track {
+    gap: 12px;
+  }
+
+  .offer-card {
+    width: min(72vw, 430px);
+    height: 188px;
+  }
+
+  .offer-card img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .offer-title {
+    font-size: 18px;
+    gap: 8px;
+  }
+
+  .offer-title::after {
+    display: none;
+  }
+
+  .offer-slider-wrapper {
+    height: 220px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .offer-slider-track {
+    width: auto;
+    animation: none;
+    padding: 10px var(--page-gutter);
+  }
+
+  .offer-card {
+    width: min(86vw, 360px);
+    height: 196px;
+    scroll-snap-align: start;
+    gap: 10px;
+  }
+
+  .offer-card img {
+    width: 42%;
+    min-width: 128px;
+  }
+
+  .offer-details {
+    padding: 12px 10px 12px 0;
+  }
+
+  .offer-details h3 {
+    font-size: 13px;
+    height: auto;
+    max-height: 38px;
+  }
+
+  .new-price {
+    font-size: 16px;
+  }
+
+  .offer-details .coupon-code {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* INFINITE MOTION */
+@keyframes autoSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.no-offer {
+  background: var(--bg-card);
+  padding: 30px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+}

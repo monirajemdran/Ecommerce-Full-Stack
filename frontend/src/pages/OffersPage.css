@@ -1,0 +1,218 @@
+/* OffersPage Flipkart-Style styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+.offers-page-container {
+  min-height: 100vh;
+  background-color: var(--bg-dark); /* Flipkart Off-white Page Body Background */
+  font-family: var(--sans);
+  color: var(--text-main);
+  padding-bottom: 60px;
+}
+
+.offers-content-area {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 30px 16px;
+  box-sizing: border-box;
+}
+
+/* Flipkart-style Banner Header */
+.offers-header {
+  background: var(--bg-card);
+  padding: 30px 24px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.offers-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color); /* Flipkart Primary Blue */
+  margin-bottom: 8px;
+}
+
+.offers-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.header-decoration-bar {
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color); /* Flipkart Yellow highlight */
+  border-radius: 2px;
+  margin: 12px auto 0 auto;
+}
+
+/* Grid Layout */
+.offers-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card Wrapper Styles matching Flipkart Card style */
+.offer-card-wrapper {
+  background: var(--bg-card);
+  border-radius: 4px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+  border-color: var(--glass-border);
+}
+
+.offer-card-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Overrides to match Flipkart ProductCard style inside Offers */
+.offer-card-inner .product-card {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  transition: none !important;
+  padding: 12px !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: auto !important;
+}
+
+.offer-card-inner .product-card img {
+  border-radius: 2px !important;
+  height: 200px !important;
+  object-fit: contain !important;
+}
+
+.offer-card-inner .product-details {
+  padding-top: 10px !important;
+}
+
+.offer-card-inner .product-details h3 {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--text-main) !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  overflow: hidden;
+}
+
+/* Price Box Overrides */
+.offer-card-inner .price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.offer-card-inner .original-price {
+  font-size: 13px !important;
+  color: #878787 !important;
+  text-decoration: line-through;
+}
+
+.offer-card-inner .discount-price {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--text-main) !important;
+}
+
+/* Button stylings overrides to Flipkart Yellow/Orange */
+.offer-card-inner .buy-btn {
+  background: var(--primary-color) !important; /* Flipkart Orange Buy Button */
+  color: var(--text-main) !important;
+  font-weight: 700 !important;
+  border-radius: 2px !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.offer-card-inner .buy-btn:hover {
+  background: var(--primary-hover) !important;
+}
+
+.offer-card-inner .cart-btn {
+  background: var(--accent-burgundy) !important;
+  color: var(--color-primary-alt) !important;
+  font-weight: 700 !important;
+  border-radius: 2px !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.offer-card-inner .cart-btn:hover {
+  background: #f2b100 !important;
+}
+
+/* Flipkart-style Coupon Badge */
+.offer-coupon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fdf0e6;
+  color: var(--primary-color);
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 13px;
+  border-top: 1px dashed var(--primary-color);
+}
+
+.coupon-value {
+  font-family: monospace;
+  background: var(--primary-color);
+  color: var(--text-main);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+/* Empty State */
+.no-offers-results {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  padding: 50px 24px;
+  text-align: center;
+  max-width: 480px;
+  margin: 60px auto;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+}
+
+.no-offers-icon {
+  font-size: 48px;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.no-offers-results h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.no-offers-results p {
+  color: var(--text-muted);
+  font-size: 14px;
+}

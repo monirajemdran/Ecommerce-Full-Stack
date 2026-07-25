@@ -1,0 +1,381 @@
+/* AdminDeliveryPartners Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.delivery-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+.add-partner-btn {
+  background: var(--primary-color); /* Flipkart Orange for action button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.add-partner-btn:hover {
+  background: var(--primary-hover);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Stats Cards */
+.delivery-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.delivery-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  transition: all 0.2s ease;
+}
+
+.delivery-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.12);
+}
+
+.delivery-stat-card .card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.delivery-stat-card.total-fleet .card-icon {
+  background-color: #eff6ff;
+  color: var(--primary-color);
+}
+
+.delivery-stat-card.online .card-icon {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.delivery-stat-card.offline .card-icon {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.delivery-stat-card.earnings .card-icon {
+  background-color: #fffde7;
+  color: #fbc02d;
+}
+
+.delivery-stat-card .card-info h3 {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.delivery-stat-card .card-info p {
+  margin: 4px 0 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Table rows */
+.driver-row {
+  transition: background-color 0.2s ease;
+}
+
+.driver-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.driver-profile-pic-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 1px;
+  background: var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.driver-thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--bg-dark);
+}
+
+.driver-name-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.driver-name {
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.driver-role-tag {
+  font-size: 10px;
+  color: var(--primary-color);
+  background-color: #eff6ff;
+  padding: 1px 6px;
+  border-radius: 2px;
+  width: fit-content;
+  margin-top: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.driver-contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.driver-email {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.driver-mobile {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.vehicle-badge {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.driver-earnings-val {
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.status-badge-premium {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  min-width: 80px;
+  text-transform: uppercase;
+}
+
+.status-badge-premium.online {
+  background-color: #e8f5e9;
+  color: #388e3c;
+  border: 1px solid #c8e6c9;
+}
+
+.status-badge-premium.offline {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background-color: var(--primary-color); /* Flipkart Blue */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.edit-btn:hover {
+  background-color: #125fd6;
+}
+
+/* Modal Overlay Styles */
+.premium-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.premium-modal-content {
+  background-color: var(--bg-card);
+  border-radius: 2px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.modal-header {
+  background-color: var(--bg-dark);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-modal-btn:hover {
+  color: var(--text-main);
+}
+
+.modal-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-group-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.password-help-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: normal;
+}
+
+.form-group input, .status-select-form {
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  font-size: 13px;
+  color: var(--text-main);
+  outline: none;
+  background-color: var(--bg-card);
+}
+
+.form-group input:focus, .status-select-form:focus {
+  border-color: var(--primary-color);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 16px;
+}
+
+.cancel-btn {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.cancel-btn:hover {
+  background-color: var(--bg-dark);
+}
+
+.submit-btn {
+  background: var(--primary-color); /* Flipkart Orange */
+  color: var(--text-main);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.submit-btn:hover {
+  background: var(--primary-hover);
+}

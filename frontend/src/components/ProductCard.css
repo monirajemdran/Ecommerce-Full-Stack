@@ -1,0 +1,335 @@
+/* ProductCard Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap');
+
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 15px;
+  box-sizing: border-box;
+}
+
+.product-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
+  min-height: 500px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.25s ease;
+  position: relative;
+  font-family: var(--sans);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+  border-color: var(--glass-border);
+}
+
+.product-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain; /* Professional retail display */
+  border-radius: 2px;
+  background: #fcfcfc;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 10px;
+  min-width: 0;
+}
+
+.product-details h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin: 0 0 6px 0;
+  min-height: 40px;
+  max-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+}
+
+/* Rating Star Badges similar to Flipkart */
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #388e3c; /* Flipkart Rating Green */
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  width: max-content;
+  margin-bottom: 6px;
+}
+
+.rating-badge.yellow-rating {
+  background: #ff9f00; /* Amber for lower scores */
+}
+
+/* Price Box Layout */
+.price-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.discount-price {
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.discount-percentage {
+  color: #388e3c; /* Green text for discounts */
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.offer-text {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.stock-text {
+  color: #388e3c;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.out-stock {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 4px 8px;
+  border-radius: 2px;
+  width: max-content;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* Action Buttons Pair stylized exactly like Flipkart */
+.product-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.product-details p {
+  margin: 3px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.cart-btn,
+.buy-btn,
+.out-btn {
+  flex: 1;
+  border: none;
+  padding: 10px 4px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  transition: all 0.2s;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.cart-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--color-border-strong);
+}
+
+.cart-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.buy-btn {
+  background: var(--primary-color);
+  color: var(--color-secondary);
+}
+
+.buy-btn:hover {
+  background: var(--primary-hover);
+}
+
+.out-btn {
+  background: #e0e0e0;
+  color: var(--text-muted);
+  cursor: not-allowed;
+  flex: 1;
+}
+
+/* Wishlist Heart Icon placement */
+.wishlist-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: var(--bg-card);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 10;
+  transition: all 0.2s;
+  border: 1px solid #f0f0f0;
+}
+
+.wishlist-icon svg {
+  color: #c2c2c2;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow);
+}
+
+.wishlist-icon:hover svg,
+.wishlist-icon.active svg {
+  color: #ff4343;
+}
+
+/* Modals & Checkouts styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.modal-box {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 4px;
+  width: 400px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  animation: pop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 992px) {
+  .products-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .product-card {
+    min-height: 460px;
+  }
+
+  .product-card img {
+    height: 210px;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .product-card {
+    min-height: auto;
+    padding: 10px;
+  }
+
+  .product-card img {
+    height: clamp(180px, 58vw, 240px);
+  }
+
+  .product-details h3 {
+    min-height: 0;
+    max-height: none;
+    font-size: 14px;
+  }
+
+  .price-box {
+    margin-bottom: 6px;
+  }
+
+  .discount-price {
+    font-size: 17px;
+  }
+
+  .cart-btn,
+  .buy-btn,
+  .out-btn {
+    min-height: 40px;
+    height: auto;
+    font-size: 12px;
+  }
+
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-box {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 8px 8px 0 0;
+    padding: 18px;
+  }
+}
+
+
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

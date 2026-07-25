@@ -1,0 +1,360 @@
+/* BuyerHome Flipkart-Style Layout styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.buyer-home-container {
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-main);
+}
+
+.buyer-full-bleed {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.buyer-offers-wrap {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.buyer-offers-wrap .offer-section {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.buyer-offers-wrap .offer-title {
+  font-size: 24px;
+  padding: 22px clamp(20px, 4vw, 40px);
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.buyer-offers-wrap .offer-slider-wrapper {
+  height: 300px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.buyer-offers-wrap .offer-card {
+  width: 520px;
+  height: 260px;
+}
+
+.buyer-offers-wrap .offer-card img {
+  width: 220px;
+}
+
+.buyer-offers-wrap .offer-details h3 {
+  font-size: 17px;
+  height: auto;
+  /* -webkit-line-clamp: 3; */
+}
+
+.buyer-offers-wrap .new-price {
+  font-size: 22px;
+}
+
+.buyer-offers-wrap .no-offer {
+  padding: 48px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.main-content-area {
+  width: 100%;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 24px var(--page-gutter) 32px;
+  box-sizing: border-box;
+}
+
+.products-grid-wrapper {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .buyer-offers-wrap .offer-slider-wrapper {
+    height: 240px;
+  }
+
+  .buyer-offers-wrap .offer-card {
+    width: 88vw;
+    max-width: 400px;
+    height: 210px;
+  }
+
+  .buyer-offers-wrap .offer-card img {
+    width: 140px;
+  }
+}
+
+/* SEARCH BAR STYLES */
+.search-wrapper {
+  background: white;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  margin-bottom: 5px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 50px 12px 20px;
+  border-radius: 2px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.search-container input:focus {
+  border-color: var(--primary-color); /* Flipkart Blue focus */
+  box-shadow: 0 0 4px rgba(40,116,240,0.2);
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  font-size: 18px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* MAIN LAYOUT GRID */
+.main-layout {
+  width: 100%;
+  max-width: 1248px; /* Standard Flipkart container width */
+  margin: 0 auto;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 240px 1fr; /* 2 Column layout standard for e-commerce */
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-dark);
+  align-items: start;
+  box-sizing: border-box;
+}
+
+/* LEFT SIDEBAR - FILTERS CARD */
+.left-sidebar {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 2px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  position: sticky;
+  top: 72px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.left-sidebar h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+/* SIZE SELECTORS */
+.size-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.size-buttons button {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  background: #ffffff;
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.size-buttons button:hover {
+  background: var(--bg-dark);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.active-size {
+  background: var(--primary-color) !important; /* Flipkart Blue active */
+  color: #ffffff !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* PRICE RANGE SLIDER */
+.price-filter {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-filter label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #878787;
+}
+
+.price-slider {
+  width: 100%;
+  accent-color: var(--primary-color); /* Flipkart Blue slider */
+}
+
+.price-box-display {
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  border: 1px solid #cbd5e1;
+}
+
+/* SELECT DROPDOWNS */
+.filter-dropdown {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  border-radius: 2px;
+  background: #ffffff;
+  font-size: 13px;
+  color: var(--text-main);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.filter-dropdown:focus {
+  border-color: var(--primary-color);
+}
+
+/* RESET BUTTON */
+.show-all-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 2px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.show-all-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* CENTER PRODUCTS GRID CONTAINER */
+.center-content {
+  width: 100%;
+  min-width: 0;
+  background: transparent; /* Remove garish gradient */
+  padding: 0;
+  border-radius: 0;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* PRODUCTS GRID */
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media(max-width: 992px) {
+  .buyer-full-bleed {
+    margin-top: 0;
+  }
+
+  .main-content-area {
+    padding-top: 18px;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .left-sidebar {
+    position: relative;
+    top: 0;
+    max-height: none;
+    height: auto;
+  }
+
+  .products-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width: 576px) {
+  .buyer-offers-wrap .offer-title {
+    font-size: 18px;
+    padding: 16px var(--page-gutter);
+  }
+
+  .buyer-offers-wrap .offer-slider-wrapper {
+    height: 225px;
+  }
+
+  .products-row {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content-area {
+    padding-top: 12px;
+  }
+
+  .btnclearall {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+.btnclearall{
+   color: black;
+   padding: 5px;
+   width: 200px;
+   height: 35px;
+   border-radius: 10px;
+   background: lightgreen;
+}

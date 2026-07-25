@@ -1,0 +1,207 @@
+/* Premium E-Commerce Theme — 60% Oat | 30% Forest | 10% Terracotta */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  /* 60% — Primary backgrounds (Warm Oat / Sand) */
+  --color-primary: #F4F1EA;
+  --color-primary-alt: #FFFFFF;
+
+  /* 30% — Secondary (Deep Forest / Sage) */
+  --color-secondary: #2C3E35;
+  --color-secondary-muted: #5a6d64;
+  --color-border: rgba(44, 62, 53, 0.14);
+  --color-border-strong: rgba(44, 62, 53, 0.24);
+
+  /* 10% — Accent (Terracotta / Warm Clay) */
+  --color-accent: #D9744B;
+  --color-accent-hover: #c4653f;
+  --color-accent-deep: #b85a38;
+
+  /* Semantic aliases (used across component CSS) */
+  --primary-color: var(--color-accent);
+  --primary-hover: var(--color-accent-hover);
+  --accent-burgundy: var(--color-accent-deep);
+  --accent-burgundy-hover: var(--color-accent-hover);
+  --nav-bg: var(--color-secondary);
+  --nav-text: var(--color-primary);
+  --bg-dark: var(--color-primary);
+  --bg-card: var(--color-primary-alt);
+  --text-main: var(--color-secondary);
+  --text-muted: var(--color-secondary-muted);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: var(--color-border);
+
+  /* Global tokens */
+  --text: var(--color-secondary);
+  --text-h: var(--color-secondary);
+  --bg: var(--color-primary);
+  --border: var(--color-border);
+  --accent: var(--color-accent);
+  --shadow: 0 2px 12px rgba(44, 62, 53, 0.08);
+  --shadow-hover: 0 4px 20px rgba(44, 62, 53, 0.12);
+  --sans: 'Roboto', -apple-system, sans-serif;
+  --heading: 'Playfair Display', Georgia, serif;
+  --page-gutter: clamp(14px, 3vw, 32px);
+
+  font: 14px/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  border-inline: none;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading);
+  color: var(--text);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+button {
+  font-family: var(--sans);
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  :root {
+    font-size: 13px;
+  }
+
+  table {
+    min-width: 720px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-gutter: 12px;
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+table {
+  width: 100%;
+  background: var(--bg-card);
+  border-collapse: collapse;
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+th {
+  background-color: var(--color-primary);
+  color: var(--color-secondary-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--text);
+  font-size: 14px;
+}
+
+tr:hover td {
+  background-color: var(--color-primary);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-badge.order-placed,
+.status-badge.pending {
+  background-color: #faf3ee;
+  color: var(--color-accent-deep);
+}
+
+.status-badge.delivered,
+.status-badge.success {
+  background-color: #eef4f0;
+  color: var(--color-secondary);
+}
+
+.status-badge.cancelled,
+.status-badge.failed {
+  background-color: #fdf0ec;
+  color: #a8432f;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-muted);
+}

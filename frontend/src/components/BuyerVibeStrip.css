@@ -1,0 +1,121 @@
+.buyer-vibe-strip {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 48px clamp(20px, 4vw, 48px) 52px;
+  min-height: 280px;
+  background: linear-gradient(
+    135deg,
+    rgba(217, 116, 75, 0.1) 0%,
+    var(--bg-card) 40%,
+    rgba(44, 62, 53, 0.08) 100%
+  );
+  border: none;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.buyer-vibe-stickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vibe-sticker {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.4;
+  animation: vibeFloat 4s ease-in-out infinite;
+}
+
+.vibe-sticker-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.vibe-sticker-2 { top: 14%; right: 8%; animation-delay: 0.6s; font-size: 2.5rem; }
+.vibe-sticker-3 { bottom: 20%; left: 10%; animation-delay: 1.2s; }
+.vibe-sticker-4 { bottom: 12%; right: 14%; animation-delay: 0.3s; }
+.vibe-sticker-5 { top: 45%; right: 5%; animation-delay: 1.8s; font-size: 1.75rem; }
+.vibe-sticker-6 { top: 50%; left: 4%; animation-delay: 1s; }
+
+@keyframes vibeFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(8deg); }
+}
+
+.buyer-vibe-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.buyer-vibe-header h3 {
+  margin: 0 0 10px;
+  font-family: var(--heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--text-main);
+}
+
+.buyer-vibe-header p {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 17px);
+  color: var(--text-muted);
+}
+
+.buyer-vibe-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.buyer-vibe-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  min-height: 88px;
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.buyer-vibe-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.vibe-emoji {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.buyer-vibe-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+@media (max-width: 576px) {
+  .buyer-vibe-strip {
+    padding: 32px 16px 36px;
+    min-height: auto;
+  }
+
+  .buyer-vibe-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

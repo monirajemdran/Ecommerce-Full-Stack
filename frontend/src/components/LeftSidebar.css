@@ -1,0 +1,190 @@
+/* LeftSidebar Flipkart-Style styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.filter-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: none;
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-start;
+  animation: fadeIn 0.2s ease;
+}
+
+.filter-sidebar-content {
+  width: min(320px, 88vw);
+  height: 100%;
+  background: var(--bg-card);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideInLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--sans);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.sidebar-header {
+  padding: 16px 20px;
+  background: var(--primary-color); /* Flipkart Primary Blue */
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.close-sidebar {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.close-sidebar:hover {
+  color: var(--primary-color);
+}
+
+.sidebar-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+@media (max-width: 576px) {
+  .filter-sidebar-overlay {
+    align-items: flex-end;
+  }
+
+  .filter-sidebar-content {
+    width: 100%;
+    height: auto;
+    max-height: 88vh;
+    border-radius: 10px 10px 0 0;
+    animation: slideInBottom 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sidebar-body {
+    padding: 16px;
+  }
+
+  .size-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.filter-group {
+  margin-bottom: 24px;
+}
+
+.filter-group h4 {
+  color: var(--text-main);
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  border-left: 3px solid var(--primary-color);
+  padding-left: 8px;
+}
+
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.size-grid button {
+  padding: 6px;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-card);
+  border-radius: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+  color: var(--text-main);
+}
+
+.size-grid button:hover, 
+.size-grid button.active-size {
+  background: var(--primary-color);
+  color: var(--text-main);
+  border-color: var(--primary-color);
+}
+
+.sidebar-dropdown {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-card);
+  outline: none;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.sidebar-dropdown:focus {
+  border-color: var(--primary-color);
+}
+
+.sidebar-slider {
+  width: 100%;
+  accent-color: var(--primary-color);
+}
+
+.price-display {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 8px;
+}
+
+.clear-all-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color); /* Flipkart Orange for action button */
+  color: var(--text-main);
+  border: none;
+  border-radius: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.clear-all-btn:hover {
+  background: var(--primary-hover);
+}

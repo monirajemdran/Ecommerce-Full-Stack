@@ -1,0 +1,314 @@
+/* Wishlist Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.wishlist-page {
+  min-height: 100vh;
+  padding: 30px 10%;
+  background-color: var(--bg-dark); /* Flipkart Off-white Body Background */
+  font-family: var(--sans);
+  color: var(--text-main);
+}
+
+/* TITLE */
+.wishlist-title {
+  font-size: 22px;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* GRID */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* CARD */
+.wishlist-card {
+  background: var(--bg-card);
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 460px;
+  position: relative;
+}
+
+.wishlist-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+  border-color: var(--glass-border);
+}
+
+/* IMAGE */
+.wishlist-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* Professional display */
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* NAME */
+.wishlist-card h2 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-main);
+  font-weight: 500;
+  line-height: 1.4;
+  min-height: 38px;
+  max-height: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* PRICE */
+.price {
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* QUANTITY SECTION */
+.wishlist-qty-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.wishlist-qty-section label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.qty-btns {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.qty-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.qty-btn:hover {
+  background: var(--bg-dark);
+  border-color: #c0c0c0;
+}
+
+.wishlist-qty-input {
+  width: 40px;
+  padding: 3px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  outline: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.wishlist-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* BUY BUTTON */
+.buy-btn {
+  flex: 1;
+  padding: 10px 4px;
+  border: none;
+  border-radius: 2px;
+  background: var(--primary-color); /* Flipkart Orange for Buy Now */
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.buy-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* REMOVE BUTTON */
+.remove-btn {
+  flex: 1;
+  padding: 10px 4px;
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.remove-btn:hover {
+  background: var(--bg-dark);
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+/* EMPTY STATE */
+.empty-box {
+  text-align: center;
+  background: var(--bg-card);
+  padding: 50px 20px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  box-shadow: none;
+  max-width: 500px;
+  margin: 60px auto;
+}
+
+.empty-box h2 {
+  color: var(--text-main);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.empty-box p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* MODAL / CHECKOUT OVERLAYS */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-box {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+  max-width: 480px;
+  width: 90%;
+  border: 1px solid var(--glass-border);
+}
+
+.modal-box h2 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.modal-box p {
+  font-size: 14px;
+  color: var(--text-main);
+  margin: 8px 0;
+}
+
+.modal-box hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid var(--glass-border);
+}
+
+.modal-total {
+  font-size: 16px;
+  color: #388e3c;
+  font-weight: 700;
+  text-align: left;
+  margin: 15px 0;
+}
+
+.main-btn {
+  background: var(--primary-color); /* Flipkart Orange */
+  color: var(--text-main);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.main-btn:hover {
+  background: var(--primary-hover);
+}
+
+.close-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  padding: 10px 24px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.close-btn:hover {
+  background: var(--bg-dark);
+}
+
+@media(max-width:992px){
+  .wishlist-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:576px){
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+  }
+}

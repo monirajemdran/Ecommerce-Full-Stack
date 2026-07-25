@@ -1,0 +1,219 @@
+/* SalesDashboard Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.dashboard {
+  padding: 30px 10%;
+  background-color: var(--bg-dark); /* Flipkart Off-white Page Body Background */
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: var(--text-main);
+}
+
+.dashboard h1 {
+  text-align: left;
+  color: var(--primary-color); /* Flipkart Primary Blue */
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* CARDS */
+.dashboard-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  width: 220px;
+  text-align: left;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.12);
+}
+
+.card h3 {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* TABLE SECTION */
+.table-section {
+  margin-top: 30px;
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+}
+
+.table-section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-mobile-list {
+  display: none;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+th {
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.table-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.grand-total {
+  margin-top: 25px;
+  padding: 24px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  text-align: left;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grand-total p {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.grand-total h1 {
+  font-size: 32px;
+  margin: 0;
+  color: #388e3c; /* Green for profit totals */
+  font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  .dashboard {
+    padding: 22px var(--page-gutter);
+  }
+
+  .table-section {
+    padding: 14px;
+  }
+
+  .sales-table {
+    display: none;
+  }
+
+  .sales-mobile-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .sales-mobile-card {
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 14px;
+    box-shadow: var(--shadow);
+  }
+
+  .sales-mobile-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  .sales-mobile-product strong {
+    display: block;
+    margin-top: 4px;
+    color: #0f172a;
+  }
+
+  .sales-mobile-label {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .sales-mobile-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 12px;
+  }
+
+  .sales-mobile-stats p {
+    margin: 4px 0 0;
+    color: #334155;
+    font-weight: 700;
+  }
+
+  .sales-mobile-stats .sales-earned {
+    color: #388e3c;
+  }
+
+  .grand-total {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .sales-mobile-product {
+    align-items: flex-start;
+  }
+
+  .sales-mobile-stats {
+    grid-template-columns: 1fr;
+  }
+}

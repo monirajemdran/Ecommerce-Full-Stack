@@ -1,0 +1,368 @@
+/* SellerDashboard Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.seller-page {
+  min-height: 100vh;
+  background-color: var(--bg-dark); /* Flipkart Off-white Page Body Background */
+  padding: 30px 10%;
+  font-family: var(--sans);
+  color: var(--text-main);
+}
+
+/* TITLE */
+.title {
+  font-size: 24px;
+  color: var(--primary-color); /* Flipkart Primary Blue */
+  margin-bottom: 24px;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 0.2px;
+  text-shadow: none;
+}
+
+/* FORM BOX CONTAINER */
+.form-box {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 0 30px 0;
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* INPUTS & SELECTS */
+.form-box input,
+.form-box select {
+  padding: 10px 12px;
+  border: 1px solid var(--glass-border);
+  outline: none;
+  border-radius: 2px;
+  background: var(--bg-card);
+  font-size: 13px;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-box input:focus,
+.form-box select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(212, 175, 55, 0.2);
+  transform: none;
+  background: var(--bg-card);
+}
+
+/* PREVIEW IMAGE */
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  background: #fdfdfd;
+}
+
+/* PRIMARY ACTION BUTTON */
+.main-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 2px;
+  background: var(--primary-color); /* Flipkart Orange Action Button */
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.main-btn:hover {
+  background: var(--primary-hover);
+  transform: none;
+  box-shadow: none;
+}
+
+/* CONTROLS AREA */
+.top-controls {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  width: 320px;
+  padding: 10px 15px;
+  border: 1px solid var(--glass-border);
+  outline: none;
+  border-radius: 2px;
+  background: var(--bg-card);
+  box-shadow: none;
+  font-size: 13px;
+  color: var(--text-main);
+  transition: all 0.2s;
+}
+
+.search-box:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(212, 175, 55, 0.2);
+  transform: none;
+}
+
+/* PRODUCTS GRID */
+.products-grid {
+  width: 100%;
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: var(--bg-card);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  border: 1px solid var(--glass-border);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+  border-color: var(--glass-border);
+}
+
+/* PRODUCT CARD IMAGE */
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.product-card:hover img {
+  transform: none;
+}
+
+/* TEXT */
+.product-card h2 {
+  padding: 12px 15px 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  min-height: 40px;
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.product-card p {
+  padding: 0 15px;
+  margin: 4px 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* BUTTONS */
+.btn-box {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+}
+
+.edit-btn,
+.delete-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn {
+  background: var(--primary-color); /* Flipkart Blue for action edits */
+}
+
+.edit-btn:hover {
+  background: #125fd6;
+  transform: none;
+}
+
+.delete-btn {
+  background: #d32f2f; /* Flipkart Red for deletion */
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+  transform: none;
+}
+
+/* PRICING */
+.discount-price {
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.original-price {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.normal-price {
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* STOCK */
+.out-stock {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  width: max-content;
+}
+
+.in-stock {
+  color: #388e3c;
+  background: #e8f5e9;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  width: max-content;
+}
+
+/* MODALS */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  width: 440px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--glass-border);
+}
+
+.modal-box h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: left;
+}
+
+.modal-box input,
+.modal-box select {
+  padding: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  background: var(--bg-card);
+  font-size: 13px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.modal-box input:focus {
+  border-color: var(--primary-color);
+}
+
+.modal-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.update-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  background: var(--primary-color); /* Flipkart Orange */
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.update-btn:hover {
+  background: var(--primary-hover);
+  transform: none;
+  box-shadow: none;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.cancel-btn:hover {
+  background: var(--bg-dark);
+}
+
+@media(max-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .seller-page {
+    padding: 15px;
+  }
+}

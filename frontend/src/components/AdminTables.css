@@ -1,0 +1,340 @@
+/* AdminTables Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.admin-table-container {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  overflow-x: auto;
+  font-family: var(--sans);
+}
+
+.admin-table-container h2 {
+  margin-top: 0;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.admin-table th {
+  background-color: var(--bg-dark);
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.product-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.delete-btn {
+  background-color: #d32f2f; /* Flipkart Red */
+  color: var(--text-main);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.delete-btn:hover {
+  background-color: #b71c1c;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.status-badge.pending {
+  background-color: #fff9e6;
+  color: #f29b00;
+}
+
+.status-badge.shipped {
+  background-color: #eff6ff;
+  color: var(--primary-color); /* Flipkart Blue */
+}
+
+.status-badge.delivered {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-badge.cancelled {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.status-badge.approved {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-action-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.approve-btn {
+  background-color: #388e3c; /* Flipkart Green */
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.approve-btn:hover {
+  background-color: #2e7d32;
+}
+
+.status-select {
+  padding: 6px 10px;
+  border-radius: 2px;
+  border: 1px solid var(--glass-border);
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  outline: none;
+  font-size: 13px;
+}
+
+.status-select:focus {
+  border-color: var(--primary-color);
+}
+
+.return-track-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(76px, 1fr));
+  gap: 6px;
+  margin-top: 10px;
+  min-width: 340px;
+}
+
+.return-track-step {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 7px;
+}
+
+.return-track-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.return-track-step p {
+  margin: 6px 0 0;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.return-track-step.done {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.return-track-step.done span {
+  background: #16a34a;
+}
+/* AdminTables.css */
+
+.report-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow);
+}
+
+.report-card h4 {
+  color: #64748b;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.report-card h2 {
+  color: #0f172a;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.chart-box {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow);
+}
+
+.chart-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #334155;
+}
+
+@media(max-width: 900px) {
+
+  .admin-table-container > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chart-box {
+    grid-column: span 1 !important;
+  }
+}
+
+@media(max-width: 700px) {
+  .admin-table-container {
+    padding: 14px;
+    overflow: visible;
+  }
+
+  .admin-table,
+  .admin-table thead,
+  .admin-table tbody,
+  .admin-table th,
+  .admin-table td,
+  .admin-table tr,
+  .delivery-main table,
+  .delivery-main table thead,
+  .delivery-main table tbody,
+  .delivery-main table th,
+  .delivery-main table td,
+  .delivery-main table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-table thead,
+  .delivery-main table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .admin-table,
+  .delivery-main table {
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .admin-table tbody,
+  .delivery-main table tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .admin-table tbody tr,
+  .delivery-main table tbody tr {
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .admin-table tbody tr:hover,
+  .delivery-main table tbody tr:hover {
+    background: #ffffff;
+  }
+
+  .admin-table td,
+  .delivery-main table td {
+    display: grid;
+    grid-template-columns: minmax(96px, 38%) 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #eef2f7;
+    text-align: right;
+    word-break: break-word;
+  }
+
+  .admin-table td:last-child,
+  .delivery-main table td:last-child {
+    border-bottom: 0;
+  }
+
+  .admin-table td::before,
+  .delivery-main table td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .return-track-map {
+    min-width: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .status-action-box {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .status-select,
+  .approve-btn,
+  .delete-btn {
+    width: 100%;
+  }
+
+  .product-thumb {
+    justify-self: end;
+  }
+}

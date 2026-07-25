@@ -1,0 +1,172 @@
+/* OrderReceived Flipkart-Style Theme styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.orders-page {
+  padding: 30px 10%;
+  min-height: 100vh;
+  background-color: var(--bg-dark); /* Flipkart Off-white Page Body Background */
+  font-family: var(--sans);
+  color: var(--text-main);
+}
+
+.orders-page h1 {
+  text-align: left;
+  font-size: 20px;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 16px;
+}
+
+.order-card {
+  background: var(--bg-card);
+  border-radius: 2px;
+  padding: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.order-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-color); /* Flipkart Blue */
+}
+
+.buyer-info {
+  font-size: 13px;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.buyer-info p {
+  margin: 4px 0;
+}
+
+.order-items-list {
+  margin-bottom: 15px;
+}
+
+.order-item-detail {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #f8fafc;
+  border-radius: 2px;
+  border: 1px solid #f1f5f9;
+}
+
+.item-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 2px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+}
+
+.item-info h4 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.item-info p {
+  margin: 2px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.order-footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.status-badge-seller {
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.order-placed {
+  background: #fff9e6;
+  color: #f29b00;
+}
+
+.order-dispatched {
+  background: #eff6ff;
+  color: var(--primary-color);
+}
+
+.seller-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.accept-btn {
+  background: var(--primary-color); /* Flipkart Orange for action confirmation */
+  color: var(--text-main);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.accept-btn:hover {
+  background: var(--primary-hover);
+}
+
+.reject-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.reject-btn:hover {
+  background: #ffebee;
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+@media(max-width:768px){
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}

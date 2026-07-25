@@ -1,11 +1,10 @@
 const express = require("express");
 
-const mongoose = require("mongoose");
-
 const cors = require("cors");
 const dotenv = require("dotenv");
 const http = require("http");
 const { Server } = require("socket.io");
+const connectDB = require("./config/db");
 
 dotenv.config();
 
@@ -94,22 +93,10 @@ app.get("/", (req, res) => {
 
 
 // MONGODB
-mongoose.connect(process.env.MONGO_URL)
-
-.then(() => {
-
-  console.log("MongoDB Connected");
-
-})
-
-.catch((err) => {
-
-  console.log(err);
-
-});
-
+connectDB();
 
 // SERVER
-server.listen(5000, () => {
-  console.log("Server Running on 5000");
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+  console.log(`Server Running on ${PORT}`);
 });

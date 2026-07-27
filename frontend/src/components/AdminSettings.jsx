@@ -23,7 +23,7 @@ const AdminSettings = () => {
   const fetchSettings = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/settings", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/settings", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSettings(res.data);
@@ -48,7 +48,7 @@ const AdminSettings = () => {
         sellerCommission: Number(settings.sellerCommission) || 0,
       };
 
-      const res = await axios.put("http://localhost:5000/api/admin/settings", payload, {
+      const res = await axios.put("https://shopverse-m5i8.onrender.com/api/admin/settings", payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -186,3 +186,4 @@ const AdminSettings = () => {
 };
 
 export default AdminSettings;
+

@@ -14,7 +14,7 @@ function AddMore() {
 
   useEffect(() => {
     // Fetch products
-    axios.get("http://localhost:5000/api/products")
+    axios.get("https://shopverse-m5i8.onrender.com/api/products")
       .then(res => {
         setProducts(res.data);
         setLoading(false);
@@ -88,3 +88,4 @@ function AddMore() {
 }
 
 export default AddMore;
+

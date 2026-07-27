@@ -20,7 +20,7 @@ const AdminCategories = () => {
   const fetchCategories = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/categories", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/categories", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCategories(res.data);
@@ -53,7 +53,7 @@ const AdminCategories = () => {
         formData.append("image", imageFile);
       }
 
-      await axios.post("http://localhost:5000/api/admin/categories", formData, {
+      await axios.post("https://shopverse-m5i8.onrender.com/api/admin/categories", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data"
@@ -97,7 +97,7 @@ const AdminCategories = () => {
           formData.append("description", cat.description || "");
         }
 
-        await axios.put(`http://localhost:5000/api/admin/categories/${categoryId}`, formData, {
+        await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/categories/${categoryId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data"
@@ -130,7 +130,7 @@ const AdminCategories = () => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem("userToken");
-          await axios.delete(`http://localhost:5000/api/admin/categories/${id}`, {
+          await axios.delete(`https://shopverse-m5i8.onrender.com/api/admin/categories/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           Swal.fire("Deleted!", "Category has been removed.", "success");
@@ -301,3 +301,4 @@ const AdminCategories = () => {
 };
 
 export default AdminCategories;
+

@@ -18,7 +18,7 @@ const DeliveryEarnings = () => {
   const fetchEarnings = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/delivery/earnings", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/delivery/earnings", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setData(res.data);
@@ -126,3 +126,4 @@ const DeliveryEarnings = () => {
 };
 
 export default DeliveryEarnings;
+

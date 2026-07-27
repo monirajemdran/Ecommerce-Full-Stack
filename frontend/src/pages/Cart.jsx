@@ -15,7 +15,7 @@ function Cart() {
   // GET CART
   const getCart = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/cart/${user._id}`);
+      const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/cart/${user._id}`);
       setCart(res.data);
     } catch (err) {
       console.error("Failed to load cart:", err);
@@ -28,7 +28,7 @@ function Cart() {
 
   // REMOVE ITEM
   const removeItem = async (id) => {
-    await axios.delete(`http://localhost:5000/api/cart/${id}`);
+    await axios.delete(`https://shopverse-m5i8.onrender.com/api/cart/${id}`);
     Swal.fire({ icon: "success", title: "Item Removed" });
     getCart();
   };
@@ -37,7 +37,7 @@ function Cart() {
   const updateQuantity = async (id, newQty) => {
     if (isNaN(newQty) || newQty < 1) return;
     try {
-      await axios.put(`http://localhost:5000/api/cart/${id}`, { quantity: newQty });
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/cart/${id}`, { quantity: newQty });
       getCart();
     } catch (err) {
       console.error("Cart update failed:", err);
@@ -86,10 +86,10 @@ function Cart() {
     try {
       if (selectedItem) {
         // Clear specific checkout item from database
-        await axios.delete(`http://localhost:5000/api/cart/${selectedItem._id}`);
+        await axios.delete(`https://shopverse-m5i8.onrender.com/api/cart/${selectedItem._id}`);
       } else {
         // Clear whole cart from database for this user
-        await axios.delete(`http://localhost:5000/api/cart/user/${user._id}`);
+        await axios.delete(`https://shopverse-m5i8.onrender.com/api/cart/user/${user._id}`);
       }
       setSelectedItem(null);
       getCart();

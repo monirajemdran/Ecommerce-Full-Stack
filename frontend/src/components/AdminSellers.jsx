@@ -14,7 +14,7 @@ const AdminSellers = () => {
   const fetchSellers = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/sellers", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/sellers", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSellers(res.data);
@@ -28,7 +28,7 @@ const AdminSellers = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/admin/sellers/${id}/status`, { sellerStatus: newStatus }, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/sellers/${id}/status`, { sellerStatus: newStatus }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       Swal.fire({
@@ -104,3 +104,4 @@ const AdminSellers = () => {
 };
 
 export default AdminSellers;
+

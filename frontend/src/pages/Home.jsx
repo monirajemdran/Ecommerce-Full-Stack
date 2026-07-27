@@ -39,7 +39,7 @@ function Home() {
  const [showProfile, setShowProfile] = useState(false);
   useEffect(() => {
     // Fetch active banner images for homepage slider
-    axios.get("http://localhost:5000/api/admin/banners/active")
+    axios.get("https://shopverse-m5i8.onrender.com/api/admin/banners/active")
       .then(res => {
         const urls = res.data.map(b => b.image).filter(Boolean);
         setSliderImages(urls);
@@ -49,11 +49,11 @@ function Home() {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
     if (loggedInUser) setUser(loggedInUser);
 
-    axios.get("http://localhost:5000/api/products/categories")
+    axios.get("https://shopverse-m5i8.onrender.com/api/products/categories")
       .then(res => setCategories(res.data))
       .catch(err => console.log(err));
 
-    axios.get("http://localhost:5000/api/admin/settings")
+    axios.get("https://shopverse-m5i8.onrender.com/api/admin/settings")
       .then(res => {
         setSiteSettings({
           platformName: res.data.platformName || "LuxeCart",
@@ -85,7 +85,7 @@ function Home() {
   const handleComplaintSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/complaints/submit", complaint);
+      await axios.post("https://shopverse-m5i8.onrender.com/api/complaints/submit", complaint);
       Swal.fire("Success", "Your complaint has been submitted successfully.", "success");
       setComplaint({ email: "", message: "" });
     } catch (err) {

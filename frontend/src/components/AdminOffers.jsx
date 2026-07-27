@@ -23,7 +23,7 @@ const AdminOffers = () => {
   const fetchOfferProducts = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/products", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/products", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOfferProducts(res.data.filter(p => p.isOffer));
@@ -47,7 +47,7 @@ const AdminOffers = () => {
       try {
         const token = localStorage.getItem("userToken");
         await axios.put(
-          `http://localhost:5000/api/admin/products/${id}/approve`,
+          `https://shopverse-m5i8.onrender.com/api/admin/products/${id}/approve`,
           { couponCode },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -73,7 +73,7 @@ const AdminOffers = () => {
       try {
         const token = localStorage.getItem("userToken");
         await axios.put(
-          `http://localhost:5000/api/admin/products/${id}/coupon`,
+          `https://shopverse-m5i8.onrender.com/api/admin/products/${id}/coupon`,
           { couponCode },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -98,7 +98,7 @@ const AdminOffers = () => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem("userToken");
-          await axios.delete(`http://localhost:5000/api/admin/products/${id}`, {
+          await axios.delete(`https://shopverse-m5i8.onrender.com/api/admin/products/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           Swal.fire("Deleted!", "Product has been deleted.", "success");
@@ -135,7 +135,7 @@ const AdminOffers = () => {
     setSubmittingOffer(true);
     try {
       const token = localStorage.getItem("userToken");
-      await axios.post(`http://localhost:5000/api/admin/products`, formData, {
+      await axios.post(`https://shopverse-m5i8.onrender.com/api/admin/products`, formData, {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
       });
       Swal.fire({ icon: "success", title: "Offer added", timer: 1500, showConfirmButton: false });
@@ -241,3 +241,4 @@ const AdminOffers = () => {
 };
 
 export default AdminOffers;
+

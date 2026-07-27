@@ -57,7 +57,7 @@ function ProductCard({
   try {
 
     await axios.post(
-      "http://localhost:5000/api/cart/add",
+      "https://shopverse-m5i8.onrender.com/api/cart/add",
       {
         userId: currentUser._id,
         productId: product._id
@@ -96,7 +96,7 @@ const addToWishlist = async () => {
   try {
 
     await axios.post(
-  "http://localhost:5000/api/wishlist/add",
+  "https://shopverse-m5i8.onrender.com/api/wishlist/add",
   {
     userId: currentUser._id,
     productId: product._id

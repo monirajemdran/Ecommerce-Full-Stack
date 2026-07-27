@@ -14,7 +14,7 @@ const DeliveryReturns = () => {
   const fetchReturns = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/returns/delivery", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/returns/delivery", {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Exclude ones already completed if you want, but for now we'll show all
@@ -29,7 +29,7 @@ const DeliveryReturns = () => {
   const handleUpdateStatus = async (returnId, newStatus) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/returns/${returnId}/status`, 
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/returns/${returnId}/status`, 
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -169,3 +169,4 @@ const DeliveryReturns = () => {
 };
 
 export default DeliveryReturns;
+

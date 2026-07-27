@@ -11,7 +11,7 @@ const AdminComplaints = () => {
 
   const fetchComplaints = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/complaints/all");
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/complaints/all");
       setComplaints(res.data);
     } catch (err) {
       console.error(err);
@@ -20,7 +20,7 @@ const AdminComplaints = () => {
 
   const handleResolve = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/complaints/${id}/status`, { status: "Resolved" });
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/complaints/${id}/status`, { status: "Resolved" });
       Swal.fire("Success", "Complaint marked as resolved", "success");
       fetchComplaints();
     } catch (err) {
@@ -68,3 +68,4 @@ const AdminComplaints = () => {
 };
 
 export default AdminComplaints;
+

@@ -11,7 +11,7 @@ function BuyerPromoBanner() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/admin/banners/active")
+      .get("https://shopverse-m5i8.onrender.com/api/admin/banners/active")
       .then((res) => {
         const images = (res.data || []).map((b) => b.image).filter(Boolean);
         setSlides(images.length > 0 ? images : [FALLBACK_BANNER]);
@@ -65,3 +65,4 @@ function BuyerPromoBanner() {
 }
 
 export default BuyerPromoBanner;
+

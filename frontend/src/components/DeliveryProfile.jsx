@@ -14,7 +14,7 @@ const DeliveryProfile = () => {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/delivery/profile", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/delivery/profile", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProfile({
@@ -35,7 +35,7 @@ const DeliveryProfile = () => {
     setSaving(true);
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put("http://localhost:5000/api/delivery/profile", {
+      await axios.put("https://shopverse-m5i8.onrender.com/api/delivery/profile", {
         name: profile.name,
         phone: profile.phone,
         vehicleNumber: profile.vehicleNumber
@@ -193,3 +193,4 @@ const DeliveryProfile = () => {
 };
 
 export default DeliveryProfile;
+

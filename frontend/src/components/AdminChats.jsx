@@ -20,7 +20,7 @@ const AdminChats = () => {
   useEffect(() => {
     fetchChats();
 
-    const newSocket = io("http://localhost:5000");
+    const newSocket = io("https://shopverse-m5i8.onrender.com");
     setSocket(newSocket);
 
     return () => newSocket.disconnect();
@@ -44,7 +44,7 @@ const AdminChats = () => {
 
   const fetchChats = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/chat");
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/chat");
       setChats(res.data);
     } catch (err) {
       console.error(err);
@@ -74,7 +74,7 @@ const AdminChats = () => {
     try {
       if (editingMessageId) {
         // Edit message
-        const res = await axios.put(`http://localhost:5000/api/chat/${selectedChat.buyer._id}/message/${editingMessageId}`, {
+        const res = await axios.put(`https://shopverse-m5i8.onrender.com/api/chat/${selectedChat.buyer._id}/message/${editingMessageId}`, {
           text: message
         });
         setSelectedChat(res.data);
@@ -88,7 +88,7 @@ const AdminChats = () => {
         if (image) formData.append("image", image);
         if (replyingTo) formData.append("replyTo", JSON.stringify({ text: replyingTo.text, sender: replyingTo.sender }));
 
-        const res = await axios.post(`http://localhost:5000/api/chat/${selectedChat.buyer._id}/message`, formData, {
+        const res = await axios.post(`https://shopverse-m5i8.onrender.com/api/chat/${selectedChat.buyer._id}/message`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         setSelectedChat(res.data);
@@ -111,7 +111,7 @@ const AdminChats = () => {
     const ok = await swalConfirm("Delete this message?");
     if (!ok) return;
     try {
-      const res = await axios.delete(`http://localhost:5000/api/chat/${selectedChat.buyer._id}/message/${msgId}`);
+      const res = await axios.delete(`https://shopverse-m5i8.onrender.com/api/chat/${selectedChat.buyer._id}/message/${msgId}`);
       setSelectedChat(res.data);
       setChats(prevChats => prevChats.map(c => c._id === res.data._id ? res.data : c));
     } catch (err) {
@@ -185,7 +185,7 @@ const AdminChats = () => {
                         <strong>{msg.replyTo.sender}:</strong> {msg.replyTo.text}
                       </div>
                     )}
-                    {msg.image && <img src={`http://localhost:5000/${msg.image}`} alt="attached" className="chat-image" />}
+                    {msg.image && <img src={`https://shopverse-m5i8.onrender.com/${msg.image}`} alt="attached" className="chat-image" />}
                     {msg.text && <p>{msg.text}</p>}
                     
                     <div className="message-footer">
@@ -264,3 +264,4 @@ const AdminChats = () => {
 };
 
 export default AdminChats;
+

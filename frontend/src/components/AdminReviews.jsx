@@ -15,7 +15,7 @@ const AdminReviews = () => {
   const fetchReviews = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/reviews", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/reviews", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReviews(res.data);
@@ -29,7 +29,7 @@ const AdminReviews = () => {
   const handleToggleHide = async (id, currentStatus) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/admin/reviews/${id}/hide`, { isHidden: !currentStatus }, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/reviews/${id}/hide`, { isHidden: !currentStatus }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       Swal.fire({
@@ -57,7 +57,7 @@ const AdminReviews = () => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem("userToken");
-          await axios.delete(`http://localhost:5000/api/admin/reviews/${id}`, {
+          await axios.delete(`https://shopverse-m5i8.onrender.com/api/admin/reviews/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           Swal.fire("Deleted!", "Review removed.", "success");
@@ -173,3 +173,4 @@ const AdminReviews = () => {
 };
 
 export default AdminReviews;
+

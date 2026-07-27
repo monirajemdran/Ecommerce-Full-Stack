@@ -15,7 +15,7 @@ function OrderDetails() {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/orders/${id}`);
+        const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/orders/${id}`);
         setOrder(res.data);
       } catch (err) {
         setError(err.response?.data?.message || "Order not found.");
@@ -191,3 +191,4 @@ function OrderDetails() {
 }
 
 export default OrderDetails;
+

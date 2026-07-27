@@ -21,7 +21,7 @@ function OrderReceived() {
 
   const fetchOrders = () => {
     axios
-      .get(`http://localhost:5000/api/orders/seller/${seller._id}`)
+      .get(`https://shopverse-m5i8.onrender.com/api/orders/seller/${seller._id}`)
       .then((res) => setOrders(res.data));
   };
 
@@ -32,7 +32,7 @@ function OrderReceived() {
   const acceptOrder = async (order) => {
     try {
       const id = order._id;
-      await axios.put(`http://localhost:5000/api/orders/${id}/status`, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/orders/${id}/status`, {
         status: "Order Dispatched",
       });
       setOrders(

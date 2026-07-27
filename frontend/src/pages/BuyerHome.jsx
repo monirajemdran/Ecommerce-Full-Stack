@@ -30,10 +30,10 @@ function BuyerHome() {
   const location = useLocation();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products")
+    axios.get("https://shopverse-m5i8.onrender.com/api/products")
       .then(res => setProducts(res.data.filter(item => item.approved !== false)));
 
-    axios.get("http://localhost:5000/api/products/categories")
+    axios.get("https://shopverse-m5i8.onrender.com/api/products/categories")
       .then(res => setCategories(res.data));
 
     if (location.state?.autoOpen) {
@@ -144,3 +144,4 @@ function BuyerHome() {
 }
 
 export default BuyerHome;
+

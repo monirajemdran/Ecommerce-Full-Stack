@@ -40,7 +40,7 @@ function Navbar({ searchQuery, onSearch, toggleFilters }) {
         formData.append("profileImage", editForm.profileImage);
       }
 
-      const res = await axios.put(`http://localhost:5000/api/users/update/${user._id}`, formData);
+      const res = await axios.put(`https://shopverse-m5i8.onrender.com/api/users/update/${user._id}`, formData);
       if (res.data.success) {
         localStorage.setItem("user", JSON.stringify(res.data.user));
         swalSuccess("Profile Updated! ✨");
@@ -115,7 +115,7 @@ function Navbar({ searchQuery, onSearch, toggleFilters }) {
           <>
             <div className="profile-circle" onClick={() => setShowProfile(!showProfile)}>
               {user.profileImage ? (
-                <img src={user.profileImage.startsWith('http') ? user.profileImage : `http://localhost:5000/${user.profileImage}`} alt="avatar" className="nav-avatar" />
+                <img src={user.profileImage.startsWith('http') ? user.profileImage : `https://shopverse-m5i8.onrender.com/${user.profileImage}`} alt="avatar" className="nav-avatar" />
               ) : (
                 user.name?.charAt(0).toUpperCase()
               )}
@@ -125,7 +125,7 @@ function Navbar({ searchQuery, onSearch, toggleFilters }) {
 
             {showProfile && (
               <div className="profile-dropdown">
-                <img src={user.profileImage ? (user.profileImage.startsWith('http') ? user.profileImage : `http://localhost:5000/${user.profileImage}`) : "https://i.imgur.com/6VBx3io.png"} alt="profile" className="profile-pic" />
+                <img src={user.profileImage ? (user.profileImage.startsWith('http') ? user.profileImage : `https://shopverse-m5i8.onrender.com/${user.profileImage}`) : "https://i.imgur.com/6VBx3io.png"} alt="profile" className="profile-pic" />
                 <h3>{user.name}</h3>
                 <p><FaEnvelope className="nav-icon" /> {user.email}</p>
                 <p><FaPhone className="nav-icon" /> {user.mobile}</p>
@@ -219,3 +219,4 @@ function Navbar({ searchQuery, onSearch, toggleFilters }) {
 
 export default Navbar;
   
+

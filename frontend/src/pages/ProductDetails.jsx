@@ -24,15 +24,15 @@ function ProductDetails() {
     const fetchDetails = async () => {
       try {
         // Fetch Product
-        const productRes = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const productRes = await axios.get(`https://shopverse-m5i8.onrender.com/api/products/${id}`);
         setProduct(productRes.data);
 
         // Fetch Reviews
-        const reviewsRes = await axios.get(`http://localhost:5000/api/reviews/product/${id}`);
+        const reviewsRes = await axios.get(`https://shopverse-m5i8.onrender.com/api/reviews/product/${id}`);
         setReviews(reviewsRes.data);
 
         // Fetch Related Products (same category)
-        const allProductsRes = await axios.get("http://localhost:5000/api/products");
+        const allProductsRes = await axios.get("https://shopverse-m5i8.onrender.com/api/products");
         const categoryMatch = allProductsRes.data.filter(
           (p) => p.category === productRes.data.category && p._id !== id
         );
@@ -71,7 +71,7 @@ function ProductDetails() {
       return;
     }
     try {
-      await axios.post("http://localhost:5000/api/cart/add", { userId: currentUser._id, productId: product._id });
+      await axios.post("https://shopverse-m5i8.onrender.com/api/cart/add", { userId: currentUser._id, productId: product._id });
       Swal.fire({ icon: "success", title: "Added To Cart 🛒", confirmButtonColor: "#ff1493" });
     } catch (err) {
       Swal.fire({ icon: "error", title: "Error Adding Product" });
@@ -84,7 +84,7 @@ function ProductDetails() {
       return;
     }
     try {
-      await axios.post("http://localhost:5000/api/wishlist/add", { userId: currentUser._id, productId: product._id });
+      await axios.post("https://shopverse-m5i8.onrender.com/api/wishlist/add", { userId: currentUser._id, productId: product._id });
       Swal.fire({ icon: "success", title: "Added To Wishlist ❤️" });
     } catch (err) {
       Swal.fire({ icon: "error", title: "Error" });
@@ -184,3 +184,4 @@ function ProductDetails() {
 }
 
 export default ProductDetails;
+

@@ -14,7 +14,7 @@ const AdminProducts = () => {
   const fetchProducts = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/products", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/products", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProducts(res.data);
@@ -28,7 +28,7 @@ const AdminProducts = () => {
   const handleApprove = async (id) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/admin/products/${id}/approve`, {}, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/products/${id}/approve`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       Swal.fire({
@@ -57,7 +57,7 @@ const AdminProducts = () => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem("userToken");
-          await axios.delete(`http://localhost:5000/api/admin/products/${id}`, {
+          await axios.delete(`https://shopverse-m5i8.onrender.com/api/admin/products/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           Swal.fire("Deleted!", "Product has been deleted.", "success");
@@ -120,3 +120,4 @@ const AdminProducts = () => {
 };
 
 export default AdminProducts;
+

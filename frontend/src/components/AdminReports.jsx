@@ -43,10 +43,10 @@ const AdminReports = () => {
     const token = localStorage.getItem("userToken");
 
     const [statsRes, ordersRes] = await Promise.all([
-      axios.get("http://localhost:5000/api/admin/stats", {
+      axios.get("https://shopverse-m5i8.onrender.com/api/admin/stats", {
         headers: { Authorization: `Bearer ${token}` },
       }),
-      axios.get("http://localhost:5000/api/admin/orders", {
+      axios.get("https://shopverse-m5i8.onrender.com/api/admin/orders", {
         headers: { Authorization: `Bearer ${token}` },
       })
     ]);
@@ -555,7 +555,7 @@ export default AdminReports;
 //       const token = localStorage.getItem("userToken");
 //       // Fetching the general stats to use for our charts. 
 //       // In a real app, you would have dedicated analytical routes (like orders by month).
-//       const res = await axios.get("http://localhost:5000/api/admin/stats", {
+//       const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/stats", {
 //         headers: { Authorization: `Bearer ${token}` }
 //       });
 //       setStats(res.data);
@@ -657,3 +657,4 @@ export default AdminReports;
 // };
 
 // export default AdminReports;
+

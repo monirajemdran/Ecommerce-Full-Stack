@@ -11,7 +11,11 @@ const userSchema =
 
     name: String,
 
-    email: String,
+    email: {
+      type: String,
+      unique: true,
+      required: true
+    },
 
     password: String,
 

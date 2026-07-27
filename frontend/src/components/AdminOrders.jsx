@@ -15,13 +15,13 @@ const AdminOrders = () => {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/orders", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/orders", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(res.data);
 
       // Fetch all delivery partners (online + offline, we show status)
-      const partnersRes = await axios.get("http://localhost:5000/api/admin/delivery-partners", {
+      const partnersRes = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/delivery-partners", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDeliveryPartners(partnersRes.data);
@@ -36,7 +36,7 @@ const AdminOrders = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/admin/orders/${id}/status`, { status: newStatus }, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/orders/${id}/status`, { status: newStatus }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       Swal.fire({
@@ -112,7 +112,7 @@ const AdminOrders = () => {
 
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.put(`http://localhost:5000/api/admin/orders/${orderId}/assign`, {
+      const res = await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/orders/${orderId}/assign`, {
         deliveryPartnerId: selectedPartnerId
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -144,7 +144,7 @@ const AdminOrders = () => {
     if (!partnerId) return;
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.put(`http://localhost:5000/api/admin/orders/${orderId}/assign`, {
+      const res = await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/orders/${orderId}/assign`, {
         deliveryPartnerId: partnerId
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -321,3 +321,4 @@ const AdminOrders = () => {
 };
 
 export default AdminOrders;
+

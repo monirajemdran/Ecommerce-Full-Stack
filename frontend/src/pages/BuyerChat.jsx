@@ -45,7 +45,7 @@ const BuyerChat = () => {
 
     fetchChat();
 
-    const newSocket = io("http://localhost:5000");
+    const newSocket = io("https://shopverse-m5i8.onrender.com");
     setSocket(newSocket);
 
     newSocket.emit("joinChat", user._id);
@@ -63,7 +63,7 @@ const BuyerChat = () => {
   const fetchChat = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/chat/${user._id}`
+        `https://shopverse-m5i8.onrender.com/api/chat/${user._id}`
       );
 
       setChat(res.data);
@@ -95,7 +95,7 @@ const BuyerChat = () => {
       if (editingMessageId) {
         // Edit Message
         const res = await axios.put(
-          `http://localhost:5000/api/chat/${user._id}/message/${editingMessageId}`,
+          `https://shopverse-m5i8.onrender.com/api/chat/${user._id}/message/${editingMessageId}`,
           {
             text: message
           }
@@ -128,7 +128,7 @@ const BuyerChat = () => {
         }
 
         const res = await axios.post(
-          `http://localhost:5000/api/chat/${user._id}/message`,
+          `https://shopverse-m5i8.onrender.com/api/chat/${user._id}/message`,
           formData,
           {
             headers: {
@@ -163,7 +163,7 @@ const BuyerChat = () => {
       formData.append("text", text);
 
       const res = await axios.post(
-        `http://localhost:5000/api/chat/${user._id}/message`,
+        `https://shopverse-m5i8.onrender.com/api/chat/${user._id}/message`,
         formData,
         {
           headers: {
@@ -188,7 +188,7 @@ const BuyerChat = () => {
 
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/chat/${user._id}/message/${msgId}`
+        `https://shopverse-m5i8.onrender.com/api/chat/${user._id}/message/${msgId}`
       );
 
       setChat(res.data);
@@ -289,7 +289,7 @@ const BuyerChat = () => {
                   {/* Image */}
                   {msg.image && (
                     <img
-                      src={`http://localhost:5000/${msg.image}`}
+                      src={`https://shopverse-m5i8.onrender.com/${msg.image}`}
                       alt="attached"
                       className="chat-image"
                     />

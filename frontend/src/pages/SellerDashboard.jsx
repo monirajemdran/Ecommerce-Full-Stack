@@ -35,7 +35,7 @@ function SellerDashboard() {
   const fetchProducts = async () => {
 
     const res = await axios.get(
-      "http://localhost:5000/api/products"
+      "https://shopverse-m5i8.onrender.com/api/products"
     );
 
     setProducts(
@@ -49,7 +49,7 @@ function SellerDashboard() {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products/categories");
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/products/categories");
       setCategories(res.data);
     } catch (err) {
       console.error(err);
@@ -124,7 +124,7 @@ function SellerDashboard() {
   user.name
 );
       await axios.post(
-        "http://localhost:5000/api/products/add",
+        "https://shopverse-m5i8.onrender.com/api/products/add",
         data
       );
 
@@ -188,7 +188,7 @@ data.append(
       }
 
       await axios.put(
-        `http://localhost:5000/api/products/${editingId}`,
+        `https://shopverse-m5i8.onrender.com/api/products/${editingId}`,
         data
       );
 
@@ -216,7 +216,7 @@ data.append(
   const deleteProduct = async (id) => {
 
     await axios.delete(
-      `http://localhost:5000/api/products/${id}`
+      `https://shopverse-m5i8.onrender.com/api/products/${id}`
     );
 
     fetchProducts();

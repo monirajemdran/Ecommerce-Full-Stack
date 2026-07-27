@@ -74,7 +74,7 @@ const DeliveryDashboard = () => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/delivery/stats", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/delivery/stats", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setStats(res.data);
@@ -105,7 +105,7 @@ const DeliveryDashboard = () => {
     if (!stats) return;
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.put("http://localhost:5000/api/delivery/availability", { available: !stats.available }, {
+      const res = await axios.put("https://shopverse-m5i8.onrender.com/api/delivery/availability", { available: !stats.available }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setStats({ ...stats, available: res.data.available });
@@ -297,3 +297,4 @@ const DeliveryDashboard = () => {
 };
 
 export default DeliveryDashboard;
+

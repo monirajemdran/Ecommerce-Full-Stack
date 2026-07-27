@@ -15,7 +15,7 @@ function Wishlist() {
   const getWishlist = async () => {
     if (!user?._id) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/wishlist/${user._id}`);
+      const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/wishlist/${user._id}`);
       const items = (res.data || []).filter((item) => item?.productId);
       setWishlist(items);
     } catch (err) {
@@ -30,7 +30,7 @@ function Wishlist() {
   // REMOVE ITEM
   const removeItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/wishlist/${id}`);
+      await axios.delete(`https://shopverse-m5i8.onrender.com/api/wishlist/${id}`);
       Swal.fire({
         icon: "success",
         title: "Removed From Wishlist ❤️"
@@ -45,7 +45,7 @@ function Wishlist() {
   const updateQuantity = async (id, newQty) => {
     if (isNaN(newQty) || newQty < 1) return;
     try {
-      await axios.put(`http://localhost:5000/api/wishlist/${id}`, { quantity: newQty });
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/wishlist/${id}`, { quantity: newQty });
       getWishlist();
     } catch (err) {
       console.error("Wishlist update failed:", err);
@@ -97,7 +97,7 @@ function Wishlist() {
     try {
       if (selectedItem) {
         // Remove item from database wishlist after successful purchase
-        await axios.delete(`http://localhost:5000/api/wishlist/${selectedItem._id}`);
+        await axios.delete(`https://shopverse-m5i8.onrender.com/api/wishlist/${selectedItem._id}`);
       }
       setSelectedItem(null);
       getWishlist();

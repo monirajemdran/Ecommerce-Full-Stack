@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { swalSuccessModal,swalSuccess } from "../utils/swal";
+import { swalSuccessModal, swalSuccess, swalError } from "../utils/swal";
 import "./Register.css";
 import shopImage from "../assets/f1.jpg";
 import styleImage from "../assets/s7.jpg";
@@ -49,30 +49,22 @@ function Register() {
     );
 
     await axios.post(
-      "http://localhost:5000/api/users/register",
+      "https://shopverse-m5i8.onrender.com/api/users/register",
       data
     );
     await swalSuccessModal("Registration Successful", `Success`);
     navigate("/login");
     // swalSuccess("Registered Successfully");
 
-  } catch(err) {
-
+  } catch (err) {
     console.log(err);
-     if (err.response?.data?.message) {
+    const errorMessage =
+      err.response?.data?.message ||
+      (typeof err.response?.data === "string" ? err.response.data : null) ||
+      err.message ||
+      "Registration failed. Try another email or go to Login.";
 
-      // alert(err.response.data.message);
-       await swalSuccessModal(err.response.data.message, `failed`);
-
-    } else {
-
-      // alert(
-      //   "User already registered. Try another email or go to Login."
-      // );
-      await swalSuccessModal("User already registered. Try another email or go to Login.", `failed`);
-
-    }
-
+    await swalError(errorMessage, "Failed");
   }
 
 };
@@ -233,3 +225,4 @@ function Register() {
 }
 
 export default Register;
+

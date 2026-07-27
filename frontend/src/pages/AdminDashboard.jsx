@@ -95,8 +95,8 @@ const AdminDashboard = () => {
       const token = localStorage.getItem("userToken");
       const headers = { Authorization: `Bearer ${token}` };
       const [statsRes, ordersRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/admin/stats", { headers }),
-        axios.get("http://localhost:5000/api/admin/orders", { headers })
+        axios.get("https://shopverse-m5i8.onrender.com/api/admin/stats", { headers }),
+        axios.get("https://shopverse-m5i8.onrender.com/api/admin/orders", { headers })
       ]);
       setStats(statsRes.data);
       setDashboardOrders(Array.isArray(ordersRes.data) ? ordersRes.data : []);
@@ -379,3 +379,4 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+

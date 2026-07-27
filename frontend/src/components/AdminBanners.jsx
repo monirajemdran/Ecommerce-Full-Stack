@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import "./AdminBanners.css";
 import "./AdminTables.css";
 
-const API = "http://localhost:5000/api/admin";
+const API = "https://shopverse-m5i8.onrender.com/api/admin";
 
 const AdminBanners = () => {
   const [banners, setBanners] = useState([]);
@@ -264,3 +264,4 @@ const AdminBanners = () => {
 };
 
 export default AdminBanners;
+

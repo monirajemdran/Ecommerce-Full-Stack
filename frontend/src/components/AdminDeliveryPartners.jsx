@@ -28,7 +28,7 @@ const AdminDeliveryPartners = () => {
   const fetchPartners = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/delivery-partners", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/delivery-partners", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setPartners(res.data);
@@ -79,7 +79,7 @@ const AdminDeliveryPartners = () => {
           payload.password = password;
         }
 
-        await axios.put(`http://localhost:5000/api/admin/delivery-partners/${selectedPartnerId}`, payload, {
+        await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/delivery-partners/${selectedPartnerId}`, payload, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -98,7 +98,7 @@ const AdminDeliveryPartners = () => {
         }
 
         const payload = { name, email, password, mobile, vehicleNumber, address, landmark };
-        await axios.post("http://localhost:5000/api/admin/delivery-partners", payload, {
+        await axios.post("https://shopverse-m5i8.onrender.com/api/admin/delivery-partners", payload, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -131,7 +131,7 @@ const AdminDeliveryPartners = () => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem("userToken");
-          await axios.delete(`http://localhost:5000/api/admin/users/${id}`, {
+          await axios.delete(`https://shopverse-m5i8.onrender.com/api/admin/users/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           Swal.fire("Deleted!", "Delivery partner has been removed.", "success");
@@ -147,7 +147,7 @@ const AdminDeliveryPartners = () => {
     try {
       const token = localStorage.getItem("userToken");
       const nextStatus = !dp.available;
-      await axios.put(`http://localhost:5000/api/admin/delivery-partners/${dp._id}`, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/delivery-partners/${dp._id}`, {
         available: nextStatus
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -409,3 +409,4 @@ const AdminDeliveryPartners = () => {
 };
 
 export default AdminDeliveryPartners;
+

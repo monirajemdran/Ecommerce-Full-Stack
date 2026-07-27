@@ -14,7 +14,7 @@ function SellerReturns() {
   const fetchReturns = async () => {
     if (!user?._id || !user?.token) return;
     try {
-      const res = await axios.get("http://localhost:5000/api/returns/seller", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/returns/seller", {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setReturns(res.data);
@@ -34,7 +34,7 @@ function SellerReturns() {
       });
 
       if (adminNotes !== undefined) {
-        await axios.put(`http://localhost:5000/api/returns/${returnId}/status`, 
+        await axios.put(`https://shopverse-m5i8.onrender.com/api/returns/${returnId}/status`, 
           { status: newStatus, adminNotes },
           { headers: { Authorization: `Bearer ${user.token}` } }
         );
@@ -83,8 +83,8 @@ function SellerReturns() {
                   <p style={{ margin: "0 0 5px 0", fontSize: "13px", fontWeight: "bold", color: "#64748b" }}>Buyer Images:</p>
                   <div style={{ display: "flex", gap: "10px", marginBottom: "15px" }}>
                     {ret.images?.map((img, i) => (
-                      <a key={i} href={`http://localhost:5000/${img}`} target="_blank" rel="noreferrer">
-                        <img src={`http://localhost:5000/${img}`} alt="" style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: "4px", border: "1px solid #cbd5e1" }} />
+                      <a key={i} href={`https://shopverse-m5i8.onrender.com/${img}`} target="_blank" rel="noreferrer">
+                        <img src={`https://shopverse-m5i8.onrender.com/${img}`} alt="" style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: "4px", border: "1px solid #cbd5e1" }} />
                       </a>
                     ))}
                     {!ret.images?.length && <span style={{ fontSize: "12px", color: "#94a3b8" }}>No images provided</span>}
@@ -107,3 +107,4 @@ function SellerReturns() {
 }
 
 export default SellerReturns;
+

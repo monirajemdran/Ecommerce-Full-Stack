@@ -15,11 +15,11 @@ function SalesDashboard() {
 
   const fetchData = async () => {
     try {
-      const prodRes = await axios.get("http://localhost:5000/api/products");
+      const prodRes = await axios.get("https://shopverse-m5i8.onrender.com/api/products");
       const sellerProducts = prodRes.data.filter(p => p.sellerId === user._id);
       setProducts(sellerProducts);
 
-      const orderRes = await axios.get(`http://localhost:5000/api/orders/seller/${user._id}`);
+      const orderRes = await axios.get(`https://shopverse-m5i8.onrender.com/api/orders/seller/${user._id}`);
       setOrders(orderRes.data);
     } catch (err) {
       console.log(err);
@@ -172,3 +172,4 @@ function SalesDashboard() {
 }
 
 export default SalesDashboard;
+

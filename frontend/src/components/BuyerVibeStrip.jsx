@@ -40,3 +40,4 @@ function BuyerVibeStrip() {
 }
 
 export default BuyerVibeStrip;
+

@@ -18,7 +18,7 @@ const handleProductInquiry = async (text, file) => {
 
       try {
         const imageSearchRes = await axios.post(
-          "http://localhost:5000/api/images/search",
+          "https://shopverse-m5i8.onrender.com/api/images/search",
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );
@@ -51,7 +51,7 @@ const handleProductInquiry = async (text, file) => {
     // Fallback to text search if no file or image search failed
     let searchQuery = text || (file ? file.name : "");
     const res = await axios.get(
-      `http://localhost:5000/api/products?search=${searchQuery}`
+      `https://shopverse-m5i8.onrender.com/api/products?search=${searchQuery}`
     );
     const products = res.data;
     
@@ -79,7 +79,7 @@ const handleProductInquiry = async (text, file) => {
       addBotMessage(`No products found for "${searchQuery}". Fetching related items...`, []);
       try {
         const relatedRes = await axios.get(
-          `http://localhost:5000/api/products?category=dress&limit=5`
+          `https://shopverse-m5i8.onrender.com/api/products?category=dress&limit=5`
         );
         const relatedProducts = relatedRes.data?.filter(p => p.stock > 0) || [];
         
@@ -117,7 +117,7 @@ const handleProductInquiry = async (text, file) => {
 const showSimilarProducts = async (productId) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/images/similar/${productId}?threshold=40&limit=6`
+      `https://shopverse-m5i8.onrender.com/api/images/similar/${productId}?threshold=40&limit=6`
     );
     
     const similarProducts = response.data.results.filter(p => p.stock > 0);
@@ -143,3 +143,4 @@ const showSimilarProducts = async (productId) => {
 */
 
 export default "Integration example - See comments above";
+

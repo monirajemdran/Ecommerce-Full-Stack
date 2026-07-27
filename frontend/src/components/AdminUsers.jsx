@@ -14,7 +14,7 @@ const AdminUsers = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/users", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/users", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(res.data);
@@ -28,7 +28,7 @@ const AdminUsers = () => {
   const handleRoleChange = async (id, newRole) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/admin/users/${id}/role`, { role: newRole }, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/users/${id}/role`, { role: newRole }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       Swal.fire({
@@ -57,7 +57,7 @@ const AdminUsers = () => {
       if (result.isConfirmed) {
         try {
           const token = localStorage.getItem("userToken");
-          await axios.delete(`http://localhost:5000/api/admin/users/${id}`, {
+          await axios.delete(`https://shopverse-m5i8.onrender.com/api/admin/users/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           Swal.fire("Deleted!", "User has been removed.", "success");
@@ -121,3 +121,4 @@ const AdminUsers = () => {
 };
 
 export default AdminUsers;
+

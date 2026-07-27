@@ -26,7 +26,7 @@ const AdminPayments = () => {
   const fetchPayments = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/orders", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/orders", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(res.data);
@@ -114,7 +114,7 @@ const AdminPayments = () => {
         updatePayload.amountCollected = true;
       }
 
-      await axios.put(`http://localhost:5000/api/admin/orders/${id}/payment`, updatePayload, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/admin/orders/${id}/payment`, updatePayload, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -494,3 +494,4 @@ const AdminPayments = () => {
 };
 
 export default AdminPayments;
+

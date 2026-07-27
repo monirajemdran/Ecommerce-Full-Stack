@@ -27,7 +27,7 @@ const handleImageUploadWithSearch = async (e) => {
 
     // Call the image search API
     const response = await axios.post(
-      "http://localhost:5000/api/images/search",
+      "https://shopverse-m5i8.onrender.com/api/images/search",
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -80,7 +80,7 @@ const handleImageUploadWithSearch = async (e) => {
         try {
           // Fallback: show related products
           const relatedRes = await axios.get(
-            "http://localhost:5000/api/products?category=dress&limit=6"
+            "https://shopverse-m5i8.onrender.com/api/products?category=dress&limit=6"
           );
           const relatedProducts = relatedRes.data?.filter((p) => p.stock > 0) || [];
 
@@ -161,7 +161,7 @@ const showSimilarProductsForItem = async (productId) => {
 
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/images/similar/${productId}?threshold=40&limit=6`
+      `https://shopverse-m5i8.onrender.com/api/images/similar/${productId}?threshold=40&limit=6`
     );
 
     const similarProducts = response.data.results.filter((p) => p.stock > 0);
@@ -228,7 +228,7 @@ const showSimilarProductsForItem = async (productId) => {
     {
       "_id": "507f1f77bcf86cd799439011",
       "name": "Red Cotton T-Shirt",
-      "image": "http://localhost:5000/uploads/shirt1.jpg",
+      "image": "https://shopverse-m5i8.onrender.com/uploads/shirt1.jpg",
       "originalPrice": 500,
       "discountPrice": 400,
       "stock": 15,
@@ -241,7 +241,7 @@ const showSimilarProductsForItem = async (productId) => {
     {
       "_id": "507f1f77bcf86cd799439012",
       "name": "Red Polo Shirt",
-      "image": "http://localhost:5000/uploads/shirt2.jpg",
+      "image": "https://shopverse-m5i8.onrender.com/uploads/shirt2.jpg",
       "originalPrice": 650,
       "discountPrice": 550,
       "stock": 8,
@@ -256,3 +256,4 @@ const showSimilarProductsForItem = async (productId) => {
 */
 
 export default "Integration ready! Copy the functions above into ChatbotWidget.jsx";
+

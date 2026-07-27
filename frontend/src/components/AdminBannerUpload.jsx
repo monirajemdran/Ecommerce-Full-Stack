@@ -22,7 +22,7 @@ function AdminBannerUpload() {
 
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.post("http://localhost:5000/api/admin/banners", formData, {
+      const res = await axios.post("https://shopverse-m5i8.onrender.com/api/admin/banners", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -77,3 +77,4 @@ function AdminBannerUpload() {
 }
 
 export default AdminBannerUpload;
+

@@ -13,7 +13,7 @@ function TransactionHistory() {
 
   useEffect(() => {
     if (user) {
-      axios.get(`http://localhost:5000/api/orders/buyer/${user._id}`)
+      axios.get(`https://shopverse-m5i8.onrender.com/api/orders/buyer/${user._id}`)
         .then(res => {
           setOrders(res.data);
           setLoading(false);
@@ -195,3 +195,4 @@ function TransactionHistory() {
 }
 
 export default TransactionHistory;
+

@@ -60,7 +60,7 @@ const ChatbotWidget = () => {
 
   const fetchOrderById = async (orderId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/orders/${orderId}`);
+      const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/orders/${orderId}`);
       return res.data;
     } catch {
       return null;
@@ -112,14 +112,14 @@ const ChatbotWidget = () => {
       addBotMessage(
         `❌ ${product.name}\nPrice: ${priceText}\n\n⚠️ This product is currently not available.\n\nWould you like to see similar products?`,
         ["Show Similar Products", "Main Menu"],
-        product.image ? (product.image.startsWith('http') ? product.image : `http://localhost:5000/${product.image}`) : null
+        product.image ? (product.image.startsWith('http') ? product.image : `https://shopverse-m5i8.onrender.com/${product.image}`) : null
       );
     } else {
       setStep("PRODUCT_OPTIONS");
       addBotMessage(
         `${product.name}\nPrice: ${priceText}\nStock: Available ✅\nSeller: ${product.sellerName || 'ABC Mobiles'}`,
         ["1. Buy Now", "2. Add to Cart", "3. Main Menu"],
-        product.image ? (product.image.startsWith('http') ? product.image : `http://localhost:5000/${product.image}`) : null
+        product.image ? (product.image.startsWith('http') ? product.image : `https://shopverse-m5i8.onrender.com/${product.image}`) : null
       );
     }
   };
@@ -136,7 +136,7 @@ const ChatbotWidget = () => {
         formData.append("image", file);
         try {
           const response = await axios.post(
-            "http://localhost:5000/api/images/search",
+            "https://shopverse-m5i8.onrender.com/api/images/search",
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -149,7 +149,7 @@ const ChatbotWidget = () => {
 
       if (!isImageSearch || products.length === 0) {
         let searchQuery = text || (file ? file.name : "");
-        const res = await axios.get(`http://localhost:5000/api/products?search=${searchQuery}`);
+        const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/products?search=${searchQuery}`);
         products = res.data;
       }
       
@@ -215,7 +215,7 @@ const ChatbotWidget = () => {
       case "PRODUCT_UNAVAILABLE":
         if (normalizedText === "Show Similar Products") {
           try {
-            const relatedRes = await axios.get(`http://localhost:5000/api/products?category=dress&limit=6`);
+            const relatedRes = await axios.get(`https://shopverse-m5i8.onrender.com/api/products?category=dress&limit=6`);
             const relatedProducts = relatedRes.data?.filter(p => p.stock > 0) || [];
             
             if (relatedProducts.length > 0) {
@@ -239,7 +239,7 @@ const ChatbotWidget = () => {
       case "SHOW_RELATED":
         if (normalizedText === "Show Related Products") {
           try {
-            const relatedRes = await axios.get(`http://localhost:5000/api/products?category=dress&limit=6`);
+            const relatedRes = await axios.get(`https://shopverse-m5i8.onrender.com/api/products?category=dress&limit=6`);
             const relatedProducts = relatedRes.data?.filter(p => p.stock > 0) || [];
             
             if (relatedProducts.length > 0) {
@@ -279,7 +279,7 @@ const ChatbotWidget = () => {
             return;
           }
           try {
-            await axios.post("http://localhost:5000/api/cart/add", {
+            await axios.post("https://shopverse-m5i8.onrender.com/api/cart/add", {
               userId: user._id,
               productId: orderData.product._id
             });
@@ -367,7 +367,7 @@ const ChatbotWidget = () => {
             const totalAmount = updatedOrderData.qty * unitPrice;
             
             const productImg = updatedOrderData.product.image
-              ? (updatedOrderData.product.image.startsWith('http') ? updatedOrderData.product.image : `http://localhost:5000/${updatedOrderData.product.image}`)
+              ? (updatedOrderData.product.image.startsWith('http') ? updatedOrderData.product.image : `https://shopverse-m5i8.onrender.com/${updatedOrderData.product.image}`)
               : null;
             const summary = `Order Summary\n\nProduct: ${updatedOrderData.product.name}\nQuantity: ${updatedOrderData.qty}\nDelivery: ${updatedOrderData.deliveryMethod}\nAmount: ₹${totalAmount}\nAddress: ${updatedOrderData.address}\nPayment: ${paymentVal}\n\nConfirm Order?`;
             addBotMessage(summary, ["Confirm", "Cancel"], productImg);
@@ -395,7 +395,7 @@ const ChatbotWidget = () => {
             }
             const totalAmount = orderData.qty * productPrice;
             
-            const createRes = await axios.post("http://localhost:5000/api/orders/razorpay/create", {
+            const createRes = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/razorpay/create", {
               amount: totalAmount
             });
             
@@ -407,7 +407,7 @@ const ChatbotWidget = () => {
             const mockPayId = "pay_" + Math.random().toString(36).substring(2, 15);
             const mockSignature = "sig_" + Math.random().toString(36).substring(2, 15);
             
-            await axios.post("http://localhost:5000/api/orders/razorpay/verify", {
+            await axios.post("https://shopverse-m5i8.onrender.com/api/orders/razorpay/verify", {
               razorpay_order_id: orderId,
               razorpay_payment_id: mockPayId,
               razorpay_signature: mockSignature
@@ -436,10 +436,10 @@ const ChatbotWidget = () => {
                 razorpaySignature: mockSignature
               }
             };
-            const res = await axios.post("http://localhost:5000/api/orders/add", orderPayload);
+            const res = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/add", orderPayload);
             
             const productImg = orderData.product.image
-              ? (orderData.product.image.startsWith('http') ? orderData.product.image : `http://localhost:5000/${orderData.product.image}`)
+              ? (orderData.product.image.startsWith('http') ? orderData.product.image : `https://shopverse-m5i8.onrender.com/${orderData.product.image}`)
               : null;
             addBotMessage(
               `✅ UPI Payment Successful!\n\n💰 ₹${totalAmount} paid via UPI (${upiId})\n\nOrder ID: ${res.data._id}\nOTP: ${res.data.buyerOTP || "N/A"}\nExpected Delivery: ${orderData.deliveryMethod === "Express Delivery" ? "Express (1-2 Days)" : "Standard (3-5 Days)"}`,
@@ -475,9 +475,9 @@ const ChatbotWidget = () => {
                 quantity: orderData.qty
               }]
             };
-            const res = await axios.post("http://localhost:5000/api/orders/add", orderPayload);
+            const res = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/add", orderPayload);
             const productImg = orderData.product.image
-              ? (orderData.product.image.startsWith('http') ? orderData.product.image : `http://localhost:5000/${orderData.product.image}`)
+              ? (orderData.product.image.startsWith('http') ? orderData.product.image : `https://shopverse-m5i8.onrender.com/${orderData.product.image}`)
               : null;
             addBotMessage(
               `✅ Order Placed Successfully\n\nOrder ID: ${res.data._id}\nOTP: ${res.data.buyerOTP || "N/A"}\nExpected Delivery: ${orderData.deliveryMethod === "Express Delivery" ? "Express (1-2 Days)" : "Standard (3-5 Days)"}`,
@@ -506,7 +506,7 @@ const ChatbotWidget = () => {
 
       case "TRACK_ORDER":
         try {
-          const res = await axios.get(`http://localhost:5000/api/orders/${text.trim()}`);
+          const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/orders/${text.trim()}`);
           const order = res.data;
 
           const formatStep = (label, done, date) => {
@@ -600,7 +600,7 @@ const ChatbotWidget = () => {
         setReturnItem({ ...selectedItem, productId });
 
         const imgUrl = selectedItem.productImage
-          ? (selectedItem.productImage.startsWith('http') ? selectedItem.productImage : `http://localhost:5000/${selectedItem.productImage}`)
+          ? (selectedItem.productImage.startsWith('http') ? selectedItem.productImage : `https://shopverse-m5i8.onrender.com/${selectedItem.productImage}`)
           : null;
 
         setStep("RETURN_REASON");
@@ -679,7 +679,7 @@ const ChatbotWidget = () => {
               formData.append("images", file);
             }
 
-            await axios.post("http://localhost:5000/api/returns/request", formData, {
+            await axios.post("https://shopverse-m5i8.onrender.com/api/returns/request", formData, {
               headers: { 
                 "Content-Type": "multipart/form-data",
                 "Authorization": `Bearer ${user.token}` 
@@ -704,7 +704,7 @@ const ChatbotWidget = () => {
       case "RETURN_CANCEL_DECISION":
         if (normalizedText === "Cancel Order" || normalizedText === "Cancel") {
           try {
-            await axios.put(`http://localhost:5000/api/orders/${returnOrderId}/cancel`);
+            await axios.put(`https://shopverse-m5i8.onrender.com/api/orders/${returnOrderId}/cancel`);
             addBotMessage("Order has been cancelled. It will now appear as Cancelled in your order history.", ["Main Menu"]);
           } catch (err) {
             addBotMessage(err.response?.data?.message || "Unable to cancel the order. Please try again.", ["Main Menu"]);
@@ -786,7 +786,7 @@ const ChatbotWidget = () => {
                     {msg.productsList.map((prod, i) => (
                       <div key={i} className="bot-product-card" onClick={() => handleProductSelection(prod)}>
                         <img 
-                          src={prod.image ? (prod.image.startsWith('http') ? prod.image : `http://localhost:5000/${prod.image}`) : "https://via.placeholder.com/150"} 
+                          src={prod.image ? (prod.image.startsWith('http') ? prod.image : `https://shopverse-m5i8.onrender.com/${prod.image}`) : "https://via.placeholder.com/150"} 
                           alt={prod.name} 
                         />
                         <div className="bot-product-info">
@@ -836,3 +836,4 @@ const ChatbotWidget = () => {
 };
 
 export default ChatbotWidget;
+

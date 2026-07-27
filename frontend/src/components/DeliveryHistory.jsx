@@ -12,7 +12,7 @@ const DeliveryHistory = () => {
   const fetchHistory = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/delivery/orders", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/delivery/orders", {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Filter only finished statuses
@@ -76,3 +76,4 @@ const DeliveryHistory = () => {
 };
 
 export default DeliveryHistory;
+

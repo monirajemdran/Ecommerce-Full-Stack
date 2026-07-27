@@ -15,7 +15,7 @@ function OffersPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://shopverse-m5i8.onrender.com/api/products")
       .then((res) => {
         // Filter specifically for offer products that have been approved
         const offerProducts = res.data.filter(
@@ -100,3 +100,4 @@ function OffersPage() {
 }
 
 export default OffersPage;
+

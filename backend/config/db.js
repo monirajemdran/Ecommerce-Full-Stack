@@ -6,7 +6,8 @@ require("dotenv").config();
 
 const connectDB = async () => {
   const mongoUri =
-    process.env.MONGO_URL || "mongodb://127.0.0.1:27017/ecommerce";
+    process.env.MONGO_URL || process.env.MONGO_URI ||
+    "mongodb://127.0.0.1:27017/ecommerce";
 
   try {
     await mongoose.connect(mongoUri, {

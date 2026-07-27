@@ -57,3 +57,4 @@ export const swalConfirm = async (text, title = 'Are you sure?') => {
 };
 
 export default MySwal;
+

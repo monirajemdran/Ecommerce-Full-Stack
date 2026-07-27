@@ -15,7 +15,7 @@ const AdminReturns = () => {
   const fetchReturns = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/returns", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/returns", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReturns(res.data);
@@ -27,7 +27,7 @@ const AdminReturns = () => {
   const fetchDeliveryPartners = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/admin/users", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/admin/users", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const partners = res.data.filter(u => u.role === "delivery");
@@ -40,7 +40,7 @@ const AdminReturns = () => {
   const assignPickup = async (returnId, partnerId) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/returns/${returnId}/assign-pickup`, 
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/returns/${returnId}/assign-pickup`, 
         { deliveryPartnerId: partnerId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -80,7 +80,7 @@ const AdminReturns = () => {
 
       try {
         const token = localStorage.getItem("userToken");
-        await axios.put(`http://localhost:5000/api/returns/${ret._id}/status`, 
+        await axios.put(`https://shopverse-m5i8.onrender.com/api/returns/${ret._id}/status`, 
           { status: 'RefundCompleted', adminNotes: `Refunded ₹${amount} via UPI (${upiId})` },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -228,3 +228,4 @@ const AdminReturns = () => {
 };
 
 export default AdminReturns;
+

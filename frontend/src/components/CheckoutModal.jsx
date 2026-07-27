@@ -140,14 +140,14 @@ function CheckoutModal({
         didOpen: () => { Swal.showLoading(); }
       });
 
-      const verifyRes = await axios.post("http://localhost:5000/api/orders/razorpay/verify", {
+      const verifyRes = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/razorpay/verify", {
         razorpay_order_id: response.razorpay_order_id,
         razorpay_payment_id: response.razorpay_payment_id,
         razorpay_signature: response.razorpay_signature
       });
 
       if (verifyRes.data && verifyRes.data.success) {
-        const orderRes = await axios.post("http://localhost:5000/api/orders/add", {
+        const orderRes = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/add", {
           buyerId: currentUser._id, buyerName: currentUser.name, buyerEmail: currentUser.email,
           buyerMobile: currentUser.mobile, buyerAddress: currentUser.address, items: allItems,
           paymentMethod: "Razorpay",
@@ -355,7 +355,7 @@ function CheckoutModal({
           });
 
           const totalAmount = pendingTotal + currentTotal;
-          const createRes = await axios.post("http://localhost:5000/api/orders/razorpay/create", {
+          const createRes = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/razorpay/create", {
             amount: totalAmount
           });
 
@@ -430,7 +430,7 @@ function CheckoutModal({
         });
       }
 
-      const res = await axios.post("http://localhost:5000/api/orders/add", {
+      const res = await axios.post("https://shopverse-m5i8.onrender.com/api/orders/add", {
         buyerId: currentUser._id, buyerName: currentUser.name, buyerEmail: currentUser.email,
         buyerMobile: currentUser.mobile, buyerAddress: currentUser.address, items: allItems,
         paymentMethod: paymentMethod,

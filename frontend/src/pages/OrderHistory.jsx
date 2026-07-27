@@ -33,7 +33,7 @@ function OrderHistory() {
   const fetchOrders = () => {
     if (!user?._id) return;
     axios
-      .get(`http://localhost:5000/api/orders/buyer/${user._id}`)
+      .get(`https://shopverse-m5i8.onrender.com/api/orders/buyer/${user._id}`)
       .then((res) => setOrders(res.data))
       .catch((err) => console.error(err));
   };
@@ -55,7 +55,7 @@ function OrderHistory() {
       });
 
       if (result.isConfirmed) {
-        const res = await axios.put(`http://localhost:5000/api/orders/${id}/cancel`);
+        const res = await axios.put(`https://shopverse-m5i8.onrender.com/api/orders/${id}/cancel`);
         setOrders(orders.map((order) => (order._id === id ? res.data : order)));
         Swal.fire("Cancelled!", "Your order has been marked as Cancelled.", "success");
       }
@@ -75,7 +75,7 @@ function OrderHistory() {
     if (!merged.sellerName || !merged.sellerEmail) {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/products/${productId}`
+          `https://shopverse-m5i8.onrender.com/api/products/${productId}`
         );
         merged = {
           ...merged,
@@ -138,7 +138,7 @@ function OrderHistory() {
       formData.append("description", returnDescription);
       returnImages.forEach((img) => formData.append("images", img));
 
-      await axios.post("http://localhost:5000/api/returns/request", formData, {
+      await axios.post("https://shopverse-m5i8.onrender.com/api/returns/request", formData, {
         headers: { "Content-Type": "multipart/form-data", "Authorization": `Bearer ${user.token}` } 
       });
 
@@ -166,7 +166,7 @@ function OrderHistory() {
 
     setSendingReview(true);
     try {
-      await axios.post("http://localhost:5000/api/reviews", {
+      await axios.post("https://shopverse-m5i8.onrender.com/api/reviews", {
         productId,
         userId: user._id,
         rating: Number(reviewRating),
@@ -681,3 +681,4 @@ function OrderHistory() {
 }
 
 export default OrderHistory;
+

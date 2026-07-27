@@ -65,7 +65,7 @@ const DeliveryAssignedOrders = () => {
       try {
         setTrackingLoading(true);
         setTrackingError("");
-        const res = await axios.get(`http://localhost:5000/api/orders/tracking/${trackingOrderId}`);
+        const res = await axios.get(`https://shopverse-m5i8.onrender.com/api/orders/tracking/${trackingOrderId}`);
         setTrackingData(res.data);
       } catch (err) {
         console.error(err);
@@ -81,7 +81,7 @@ const DeliveryAssignedOrders = () => {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const res = await axios.get("http://localhost:5000/api/delivery/orders", {
+      const res = await axios.get("https://shopverse-m5i8.onrender.com/api/delivery/orders", {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Filter out 'Delivered' from assigned view
@@ -136,7 +136,7 @@ const DeliveryAssignedOrders = () => {
   const updateStatusAPI = async (orderId, status, otp = null, buyerOtp = null) => {
     try {
       const token = localStorage.getItem("userToken");
-      await axios.put(`http://localhost:5000/api/delivery/orders/${orderId}/status`, { status, otp, buyerOtp }, {
+      await axios.put(`https://shopverse-m5i8.onrender.com/api/delivery/orders/${orderId}/status`, { status, otp, buyerOtp }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       Swal.fire({
@@ -208,7 +208,7 @@ const DeliveryAssignedOrders = () => {
     if (result.isConfirmed) {
       try {
         const token = localStorage.getItem("userToken");
-        await axios.put(`http://localhost:5000/api/delivery/orders/${orderId}/collect`, {}, {
+        await axios.put(`https://shopverse-m5i8.onrender.com/api/delivery/orders/${orderId}/collect`, {}, {
           headers: { Authorization: `Bearer ${token}` }
         });
         Swal.fire({
@@ -477,3 +477,4 @@ const DeliveryAssignedOrders = () => {
 };
 
 export default DeliveryAssignedOrders;
+
